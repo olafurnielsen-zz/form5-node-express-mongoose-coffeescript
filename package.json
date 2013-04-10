@@ -1,0 +1,28 @@
+{
+  "name": "form5-appname",
+  "author": "Form5 <contact@form5.is>",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "express": "latest",
+    "jade": "latest",
+    "coffee-script": "latest",
+    "mongoose": "latest",
+    "connect-mongo": "latest",
+    "connect-assets": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "bcrypt": "latest",
+    "underscore": "latest",
+    "connect-flash": "latest",
+    "view-helpers": "latest"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-coffeelint": "latest",
+    "node-dev": "latest"
+  }
+}
