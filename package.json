@@ -18,7 +18,8 @@
     "bcrypt": "latest",
     "underscore": "latest",
     "connect-flash": "latest",
-    "view-helpers": "latest"
+    "view-helpers": "latest",
+    "less": "~1.3.3"
   },
   "devDependencies": {
     "grunt": "latest",

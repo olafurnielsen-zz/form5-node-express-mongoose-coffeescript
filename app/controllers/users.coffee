@@ -33,7 +33,7 @@ exports.logout = (req, res) ->
 #
 
 exports.index = (req, res) ->
-  
+  res.render 'users/index'
   return
 
 #

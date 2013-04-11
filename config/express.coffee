@@ -2,6 +2,7 @@ express = require('express')
 mongoStore = require('connect-mongo')(express)
 flash = require('connect-flash')
 helpers = require('view-helpers')
+path = require('path')
 
 module.exports = (app, config, passport) ->
 
@@ -38,6 +39,9 @@ module.exports = (app, config, passport) ->
     app.use(passport.session())
 
     app.use(express.favicon())
+
+    app.use(express.static(path.join(__dirname, '../public')));
+    app.use(require('connect-assets')());
 
     app.use(app.router)
     

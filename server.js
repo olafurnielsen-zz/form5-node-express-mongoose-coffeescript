@@ -8,7 +8,8 @@ var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
     mongoose = require('mongoose'),
-    coffee = require('coffee-script')
+    coffee = require('coffee-script'),
+    less = require('less')
 
 var env = process.env.NODE_ENV || 'development',
     config = require('./config/config')[env],

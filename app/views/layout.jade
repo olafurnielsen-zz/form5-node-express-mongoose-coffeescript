@@ -1,0 +1,59 @@
+doctype 5
+html
+  head
+    meta(charset='utf-8')
+  
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+  
+    title
+      block title
+      |  - #{appName}
+
+    meta(name='description', content='Form5 Node.js skeleton that uses Express, Mongoose, Coffeescript, LESS css, Twitter bootstrap and more...')
+  
+    link(rel='icon', href='favicon.ico', type='image/x-ico')
+    link(rel='shortcut icon', href='favicon.ico', type='image/vnd.microsoft.icon')
+
+    meta(property='fb:app_id', content='123456789')
+    meta(property='og:title', content='#{title}')
+    meta(property='og:description', content='Form5 Node.js skeleton that uses Express, Mongoose, Coffeescript, LESS css, Twitter bootstrap and more...')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://github.com/olafurnielsen/form5-node-express-mongoose-coffeescript')
+    meta(property='og:image', content='http://blog.getbootstrap.com/wp-content/themes/bootstrap-blog/img/bootstrap-blog-logo.png')
+    meta(property='og:site_name', content='Form5 Node.js skeleton')
+    meta(property='fb:admins', content='123456789')
+        
+    != css('style')
+    != css('vendor/bootstrap/css/bootstrap')
+    != css('vendor/bootstrap/css/bootstrap-responsive')
+    
+    // if lte IE 9
+      !css('style-ie9-lte')
+
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          button(type='button', class='btn btn-navbar', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar          
+        
+          a.brand(href='/') Form5 Node.js Skeleton
+          
+          .nav-collapse.collapse
+            ul.nav
+              li
+                a(href='/') Articles
+              li
+                a(href='/users/') Log in
+              
+    .container
+      block content
+      
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")    
+    != js('vendor/bootstrap')
