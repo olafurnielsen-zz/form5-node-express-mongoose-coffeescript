@@ -32,19 +32,22 @@ module.exports = (app, config, passport) ->
         collection : 'sessions'
       })
     }))
-
+    
     app.use(flash())
 
     app.use(passport.initialize())
     app.use(passport.session())
 
-    app.use(express.favicon())
-
-    app.use(express.static(path.join(__dirname, '../public')));
+    app.use(express.static(path.join(__dirname, '../assets')));
     app.use(require('connect-assets')());
 
     app.use(app.router)
-    
+    return
+
+  app.configure 'development', ->
+    console.log 'Configuring development environment'
+    app.use express.errorHandler()
+    app.locals.pretty = true;
     return
 
   return
