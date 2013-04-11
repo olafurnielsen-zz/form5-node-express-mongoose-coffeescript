@@ -1,7 +1,30 @@
-extends ../layout
+extends base
 
 block title
-  | List users
+  | System users
 
-block content
-  h2 List users
+block main
+  h2 System users
+
+  if message != ''
+    .alert.alert-notice
+      a.close(data-dismiss="alert", href="javascript:void(0)") x
+      | #{message}
+
+  table.table.table-striped
+    tr
+      th Name
+      th Username
+      th Email
+      th Created
+      th Actions
+    each user in users
+      tr
+        td= user.name
+        td= user.username
+        td= user.email
+        td= user.created.toDateString()
+        td
+          a(href='/users/#{user.id}/edit') edit
+          |  | 
+          a(href='/users/#{user.id}/destroy', onclick='return confirm("Are you sure you want to delete user #{user.username}?") ? true : false') delete

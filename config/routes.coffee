@@ -19,8 +19,8 @@ module.exports = (app, passport, auth) ->
   app.post '/users', auth.requiresLogin, users.create
   app.get '/users/:userId/edit', auth.requiresLogin, users.edit
   app.put '/users/:userId', auth.requiresLogin, users.update
-  app.del '/users/:userId', auth.requiresLogin, users.destroy
-    
+  app.get '/users/:userId/destroy', auth.requiresLogin, users.destroy
+
   app.param 'userId', users.user
 
   # Article routes

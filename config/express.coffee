@@ -23,6 +23,8 @@ module.exports = (app, config, passport) ->
     app.use(express.cookieParser())
 
     app.use(express.bodyParser())
+    
+    # Support for using PUT, DEL etc. in forms using hidden _method field
     app.use(express.methodOverride())
 
     app.use(express.session({

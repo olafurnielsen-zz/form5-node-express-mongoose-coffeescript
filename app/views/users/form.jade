@@ -1,0 +1,33 @@
+extends base
+
+block content
+  - var action = '/users'
+  if (!user.isNew)
+    - action += '/'+user.id
+  
+  form(action=action, method='post')
+    if(!user.isNew)
+      input(type='hidden', name='_method', value='put')
+
+    p
+      label Name
+        br
+        input.input(name='name', type='text', value=user.name)
+  
+    p
+      label Username
+        br
+        input(name='username', type='text', value=user.username)
+
+    p
+      label Email
+        br
+        input(name='email', type='text', value=user.email)
+      
+    p
+      label Change password
+        br
+        input(name='password', type='password', placeholder='Type a new one to update')
+      
+    p
+      button.btn(type='submit') Update user

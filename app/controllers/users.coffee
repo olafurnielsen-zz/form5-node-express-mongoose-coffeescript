@@ -4,7 +4,7 @@
 mongoose = require 'mongoose'
 _ = require 'underscore'
 
-user = mongoose.model 'User'
+User = mongoose.model 'User'
 
 #
 # Show login form
@@ -27,31 +27,37 @@ exports.logout = (req, res) ->
 # List users
 #
 exports.index = (req, res) ->
-  res.render 'users/index'
-  return
+  User.list (err, users) ->
+    res.render 'users/index',
+      users: users
+      message: req.flash 'notice'
+    return
 
 #
 # Display new user form
 #
 exports.new = (req, res) ->
-  res.render 'users/new'
+  res.render 'users/new',
+    user: new User({})
   return
 
 #
 # Create user
 #
-
 exports.create = (req, res) ->
   user = new User req.body
   user.save (err) ->
-    res.render 'users/new',
-      errors: err.errors
-      user: user
+    if err
+      res.render 'users/new',
+        errors: err.errors
+        user: user
+
+    res.redirect '/users'
+    return
 
 #
 # Find user by id
 #
-
 exports.user = (req, res, next, id) ->
   User.findById(id)
     .exec (err, user) ->
@@ -67,12 +73,8 @@ exports.user = (req, res, next, id) ->
 # Show edit form for users
 #
 exports.edit = (req, res) ->
-  User.findById req.params.id, (err, user) ->
-    res.redirect '/users' if not user
-    res.render 'users/edit',
-      user: user
-    return
-
+  res.render 'users/edit',
+    user: req.profile
   return
 
 #
@@ -80,12 +82,18 @@ exports.edit = (req, res) ->
 #
 exports.update = (req, res) ->
   user = req.profile
-  user = _.extend user, req.body
+
+  user.name = req.body.name
+  user.username = req.body.username
+  user.email = req.body.email
+
+  user.password = req.body.password if req.body.password
   
   user.save (err) ->
     if err
-      res.render '/users/' + user.id + '/edit',
-        title: 'Edit user'
+      console.log err
+      
+      res.render 'users/edit',
         user: user
         errors: err.errors
     else
@@ -97,13 +105,12 @@ exports.update = (req, res) ->
 # Delete user
 #
 exports.destroy = (req, res) ->
+  user = req.profile
   
-  User.findById( req.params.id, (err, user) ->
-    if !user
-      res.redirect '/users'
-    user.remove()
+  user.remove (err) ->
+    req.flash 'notice', 'User ' + user.name + ' was successfully deleted.'
     res.redirect '/users'
-  )
+
   return
 
 
