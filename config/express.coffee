@@ -26,7 +26,7 @@ module.exports = (app, config, passport) ->
     app.use(express.methodOverride())
 
     app.use(express.session({
-      secret: 'noobjs',
+      secret: 'p8zztgch48rehu79jskhm6aj3',
       store: new mongoStore({
         url: config.db,
         collection : 'sessions'

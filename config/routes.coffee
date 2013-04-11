@@ -3,6 +3,15 @@ module.exports = (app, passport, auth) ->
   # User routes
   users = require '../app/controllers/users'
   app.get '/login', users.login
+
+  app.post '/login', passport.authenticate('local',
+    failureRedirect: '/login'
+    failureFlash: true),
+
+    (req, res) ->
+      res.redirect '/'
+      return
+
   app.get '/logout', users.logout
   
   app.get '/users', users.index

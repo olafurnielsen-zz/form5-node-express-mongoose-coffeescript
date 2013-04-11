@@ -56,5 +56,17 @@ UserSchema.pre 'save', (next) ->
 
     return
 
-
 User = mongoose.model 'User', UserSchema
+
+###
+user = new User
+  username: 'oon'
+  password: 'oon'
+  email: 'olafur@form5.is'
+  name: 'Ólafur Örn Nielsen'
+user.save (err) ->
+  if err
+    console.log err
+  else
+    console.log 'Created user: ' + user.username
+###

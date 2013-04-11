@@ -46,11 +46,20 @@ html(lang='en')
           a.brand(href='/') Form5 Node.js Skeleton
           
           .nav-collapse.collapse
+          
+            if req.user
+              p.navbar-text.pull-right
+                | Welcome, #{req.user.name}
+                | | 
+                a(href='/logout') logout
+            else
+              p.navbar-text.pull-right
+                a(href='/login') Login
             ul.nav
               li
                 a(href='/') Articles
               li
-                a(href='/users/') Log in
+                a(href='/users/') Users
               
     .container
       block content

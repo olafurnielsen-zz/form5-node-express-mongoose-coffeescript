@@ -1,7 +1,6 @@
 #
 # Module dependencies
 #
-
 mongoose = require 'mongoose'
 _ = require 'underscore'
 
@@ -10,28 +9,23 @@ user = mongoose.model 'User'
 #
 # Show login form
 #
-
 exports.login = (req, res) ->
   res.render 'users/login',
     title: 'Login'
     message: req.flash 'error'
-  
   return
 
 #
 # Logout
 #
-
 exports.logout = (req, res) ->
   req.logout()
-  res.rediect '/login'
-  
+  res.redirect '/'
   return
 
 #
 # List users
 #
-
 exports.index = (req, res) ->
   res.render 'users/index'
   return
@@ -39,7 +33,6 @@ exports.index = (req, res) ->
 #
 # Display new user form
 #
-
 exports.new = (req, res) ->
   res.render 'users/new'
   return
@@ -73,7 +66,6 @@ exports.user = (req, res, next, id) ->
 #
 # Show edit form for users
 #
-
 exports.edit = (req, res) ->
   User.findById req.params.id, (err, user) ->
     res.redirect '/users' if not user
@@ -86,7 +78,6 @@ exports.edit = (req, res) ->
 #
 # Update user
 #
-
 exports.update = (req, res) ->
   user = req.profile
   user = _.extend user, req.body
@@ -99,14 +90,12 @@ exports.update = (req, res) ->
         errors: err.errors
     else
       res.redirect '/users'
-    return
-    
+    return 
   return
 
 #
 # Delete user
 #
-
 exports.destroy = (req, res) ->
   
   User.findById( req.params.id, (err, user) ->
@@ -115,7 +104,6 @@ exports.destroy = (req, res) ->
     user.remove()
     res.redirect '/users'
   )
-  
   return
 
 
