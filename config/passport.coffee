@@ -18,7 +18,7 @@ module.exports = (passport) ->
       if err
         return done err
       if !user
-        return done null, false
+        return done null, false, message: 'Unknown user'
       
       user.comparePassword password, (err, isMatch) ->
         if err
@@ -26,7 +26,7 @@ module.exports = (passport) ->
         if isMatch
           return done null, user
         else
-          return done null, false
+          return done null, false, message: 'Invalid password'
       
       return
     return

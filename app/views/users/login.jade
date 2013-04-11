@@ -6,7 +6,10 @@ block title
 block content
   h2 Please log in
 
-  form(action='/login', method='post')
+  if message != ''
+    .alert.alert-error= message
+
+  form(action='/login', method='post')rdio
 
     p
       label(for='username') Username<br />

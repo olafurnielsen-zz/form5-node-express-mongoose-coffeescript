@@ -4,5 +4,6 @@
 #
 
 exports.requiresLogin = (req, res, next) ->
-  return res.redirect '/login' unless req.isAuthenticated
+  return res.redirect '/login' unless req.isAuthenticated()
   next()
+  return
