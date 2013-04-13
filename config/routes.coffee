@@ -26,11 +26,14 @@ module.exports = (app, passport, auth) ->
   # Article routes
   articles = require '../app/controllers/articles'
   app.get '/', articles.index
+  app.get '/articles', articles.manage
   app.get '/articles/new', auth.requiresLogin, articles.new
-  app.get '/articles/:id', articles.show
+  app.get '/articles/:articleId', articles.show
   app.post '/articles', auth.requiresLogin, articles.create
-  app.get '/articles/:id/edit', auth.requiresLogin, articles.edit
-  app.put '/articles/:id', auth.requiresLogin, articles.update
-  app.del '/articles/:id', auth.requiresLogin, articles.destroy
+  app.get '/articles/:articleId/edit', auth.requiresLogin, articles.edit
+  app.put '/articles/:articleId', auth.requiresLogin, articles.update
+  app.get '/articles/:articleId/destroy', auth.requiresLogin, articles.destroy
+
+  app.param 'articleId', articles.article
 
   return

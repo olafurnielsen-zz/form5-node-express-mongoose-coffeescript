@@ -97,6 +97,7 @@ exports.update = (req, res) ->
         user: user
         errors: err.errors
     else
+      req.flash 'notice', 'User was successfully updated'
       res.redirect '/users'
     return 
   return

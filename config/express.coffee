@@ -32,6 +32,8 @@ module.exports = (app, config, passport) ->
       })
     }))
     
+    app.use(express.favicon(path.join(__dirname, '../assets/img/favicon.ico')))
+
     app.use(flash())
 
     app.use(passport.initialize())

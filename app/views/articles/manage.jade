@@ -1,0 +1,27 @@
+extends base
+
+block title
+  | Manage articles
+
+block main
+  h2 Manage articles
+
+  if message != ''
+    .alert.alert-notice
+      a.close(data-dismiss="alert", href="javascript:void(0)") x
+      | #{message}
+
+  table.table.table-striped
+    tr
+      th Title
+      th Created
+      th Actions
+    each article in articles
+      tr
+        td
+          a(href='/articles/#{article.id}/edit')=article.title
+        td= dateShortMon(article.createdAt)
+        td
+          a(href='/articles/#{article.id}/edit') edit
+          |  | 
+          a(href='/articles/#{article.id}/destroy', onclick='return confirm("Are you sure you want to delete article #{article.title}?") ? true : false') delete
