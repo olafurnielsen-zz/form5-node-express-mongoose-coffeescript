@@ -2,6 +2,12 @@
 
 Do you find yourself looking around for Node.js conventions and how to structure your Node application? Firstly, this skeleton shows how a Node.js web application can be structured properly. Secondly, it demonstrates how some popular modules that provide basic functionalities for your app can be used.
 
+**Demo**
+
+[http://form5-node-skeleton.herokuapp.com/](http://form5-node-skeleton.herokuapp.com/)
+
+Log in using admin/admin to manage users & articles.
+
 ## Install
 
 Assuming you have Node.js and npm installed, to get started developing using this skeleton, run:
@@ -25,7 +31,6 @@ Open [http://localhost:3000/](http://localhost:3000) in your browser.
 - [connect-mongo](https://github.com/kcbanner/connect-mongo) for persistent session storage.
 - Coffeescript linting using [Grunt](http://gruntjs.com/).
 - [node-dev](https://github.com/fgnass/node-dev), an awesome development tool for Node.js that automatically restarts your node process when a script is modified. It also has useful growl notifications:
-
 
 ![Screenshot](http://fgnass.github.com/images/node-dev.png)
 
