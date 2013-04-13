@@ -5,6 +5,7 @@
  */
 
 var express = require('express'),
+    http = require('http'),
     fs = require('fs'),
     passport = require('passport'),
     mongoose = require('mongoose'),
@@ -39,5 +40,6 @@ require('./app/helpers/general')(app)
 
 // Start the app by listening on <port>
 var port = process.env.PORT || 3000
-app.listen(port)
-console.log('Form5 Express app running on port '+port)
+http.createServer(app).listen(port, function(){
+  console.log('Form5 Express app running on port '+port)
+});
