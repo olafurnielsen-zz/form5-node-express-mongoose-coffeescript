@@ -12,7 +12,7 @@ var express = require('express'),
     less = require('less')
 
 var env = process.env.NODE_ENV || 'development',
-    config = require('./config/config')[env],
+    config = require('./config/environment')[env],
     auth = require('./config/middlewares/authorization')
     
 // Bootstrap database
