@@ -19,7 +19,9 @@
     "underscore": "latest",
     "connect-flash": "latest",
     "view-helpers": "latest",
-    "less": "~1.3.3"
+    "less": "latest",
+    "moment": "latest",
+    "marked": "latest"
   },
   "devDependencies": {
     "grunt": "latest",
