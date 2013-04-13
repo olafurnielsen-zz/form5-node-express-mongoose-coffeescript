@@ -17,6 +17,7 @@ var env = process.env.NODE_ENV || 'development',
     auth = require('./config/middlewares/authorization')
     
 // Bootstrap database
+console.log('Connecting to database at ' + config.db)
 mongoose.connect(config.db)
 
 // Bootstrap models
