@@ -2,8 +2,9 @@
 
 Do you find yourself looking around for Node.js conventions and how to structure your Node application? Firstly, this skeleton shows how a Node.js web application can be structured properly. Secondly, it demonstrates how some popular modules that provide basic functionalities for your app can be used.
 
-**Demo**
+I haven't been using Node.js for long but here I've gathered some of the good things I have come across on my short journey. Hope this can help you get started.
 
+**You can find this demo running on Heroku:**
 [http://form5-node-skeleton.herokuapp.com/](http://form5-node-skeleton.herokuapp.com/)
 
 Log in using admin/admin to manage users & articles.
@@ -42,7 +43,7 @@ And much more...
   |--controllers/
   |--models/
   |--views/
-	|__helpers/ (template helper functions)
+  |__helpers/ (template helper functions)
 -config/
   |--routes.coffee
   |--environment.coffee
@@ -50,11 +51,11 @@ And much more...
   |--express.coffee (express.js config)
   |--middlewares/ (custom middlewares)
 -assets/ (Client side assets)
-	|--css/ (supports LESS)
-	|--js/ (supports Coffescript)
-	|--img/
+  |--css/ (supports LESS)
+  |--js/ (supports Coffescript)
+  |--img/
 -bin/
-	|__devserver (Shell script for firing up node-dev)
+  |__devserver (Shell script for firing up node-dev)
 --server.js
 ```
 
