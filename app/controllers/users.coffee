@@ -59,7 +59,7 @@ exports.create = (req, res) ->
 # Find user by id
 #
 exports.user = (req, res, next, id) ->
-  User.findById(id).exec(err, user) ->
+  User.findById(id).exec (err, user) ->
     return next err if err
     return next new Error 'Failed to load user' if not user
         
