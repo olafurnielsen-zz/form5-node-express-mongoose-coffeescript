@@ -59,14 +59,13 @@ exports.create = (req, res) ->
 # Find user by id
 #
 exports.user = (req, res, next, id) ->
-  User.findById(id)
-    .exec (err, user) ->
-      return next err if err
-      return next new Error 'Failed to load user' if not user
+  User.findById(id).exec(err, user) ->
+    return next err if err
+    return next new Error 'Failed to load user' if not user
         
-      req.profile = user
-      next()
-      return
+    req.profile = user
+    next()
+    return
   return
 
 #
@@ -99,7 +98,7 @@ exports.update = (req, res) ->
     else
       req.flash 'notice', 'User was successfully updated'
       res.redirect '/users'
-    return 
+    return
   return
 
 #

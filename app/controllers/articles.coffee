@@ -45,7 +45,7 @@ exports.update = (req, res) ->
   
   article = _.extend article, req.body
   article.save (err) ->
-    if err  
+    if err
       res.render 'articles/edit',
         article:article
         errors: err.errors
@@ -87,12 +87,11 @@ exports.index = (req, res) ->
 # Find article by ID
 #
 exports.article = (req, res, next, id) ->
-  Article.findById(id)
-    .exec (err, article) ->
-      return next err if err
-      return next new Error 'Failed to load article' if not article
+  Article.findById(id).exec(err, article) ->
+    return next err if err
+    return next new Error 'Failed to load article' if not article
       
-      req.article = article
-      next()
-      return
+    req.article = article
+    next()
+    return
   return

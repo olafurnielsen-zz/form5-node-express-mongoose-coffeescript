@@ -9,7 +9,7 @@ module.exports = (app, config, passport) ->
 
   app.use(express.compress({
     filter: (req, res) ->
-      return /json|text|javascript|css/.test(res.getHeader('Content-Type'));
+      return /json|text|javascript|css/.test(res.getHeader('Content-Type'))
     level: 9
   }))
   
@@ -39,8 +39,8 @@ module.exports = (app, config, passport) ->
     app.use(passport.initialize())
     app.use(passport.session())
 
-    app.use(express.static(path.join(__dirname, '../assets')));
-    app.use(require('connect-assets')());
+    app.use(express.static(path.join(__dirname, '../assets')))
+    app.use(require('connect-assets')())
 
     app.use(app.router)
     return
@@ -48,7 +48,7 @@ module.exports = (app, config, passport) ->
   app.configure 'development', ->
     console.log 'Configuring development environment'
     app.use express.errorHandler()
-    app.locals.pretty = true;
+    app.locals.pretty = true
     return
 
   return
