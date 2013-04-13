@@ -57,9 +57,13 @@ html(lang='en')
                 a(href='/login') Login
             ul.nav
               li
-                a(href='/') Articles
-              li
-                a(href='/users/') Users
+                a(href='/') Home
+                
+              if req.user
+                li
+                  a(href='/users/') Users
+                li
+                  a(href='/articles/') Manage articles
               
     .container
       block content

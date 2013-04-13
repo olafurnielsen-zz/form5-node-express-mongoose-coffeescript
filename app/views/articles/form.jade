@@ -1,0 +1,28 @@
+extends base
+
+block content
+  - var action = '/articles'
+  if (!article.isNew)
+    - action += '/'+article.id
+  
+  form(action=action, method='post')
+    if(!article.isNew)
+      input(type='hidden', name='_method', value='put')
+
+    p
+      label Title
+        br
+        input.input.input-xxlarge(name='title', type='text', value=article.title)
+  
+    p
+      label Body
+        br
+        textarea.input-xxlarge(name='body', rows=20, placeholder='Use Markdown syntax')=article.body
+        
+    p
+      label Tags
+        br
+        input(name='tags', type='text', value=article.tags, placeholder='Enter tags, comma seperated')
+      
+    p
+      button.btn.btn-primary(type='submit') Save article

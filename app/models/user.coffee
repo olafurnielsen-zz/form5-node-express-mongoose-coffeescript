@@ -31,8 +31,6 @@ UserSchema.pre 'save', (next) ->
   user = this
   SALT_WORK_FACTOR = 10
 
-  console.log 'Hæ: ' + user.isModified 'password'
-
   if !user.isModified 'password'
     console.log 'Password not modified'
     return next()

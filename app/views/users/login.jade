@@ -9,7 +9,7 @@ block content
   if message != ''
     .alert.alert-error= message
 
-  form(action='/login', method='post')rdio
+  form(action='/login', method='post')
 
     p
       label(for='username') Username<br />
@@ -20,4 +20,4 @@ block content
       input#password(name='password', type='password')
   
     p
-      input(type='submit', value='submit')
+      input.btn.btn-primary(type='submit', value='Log in')

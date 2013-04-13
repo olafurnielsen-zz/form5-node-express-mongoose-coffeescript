@@ -26,8 +26,8 @@ module.exports = (app, passport, auth) ->
   # Article routes
   articles = require '../app/controllers/articles'
   app.get '/', articles.index
-  app.get '/articles/:id', articles.show
   app.get '/articles/new', auth.requiresLogin, articles.new
+  app.get '/articles/:id', articles.show
   app.post '/articles', auth.requiresLogin, articles.create
   app.get '/articles/:id/edit', auth.requiresLogin, articles.edit
   app.put '/articles/:id', auth.requiresLogin, articles.update

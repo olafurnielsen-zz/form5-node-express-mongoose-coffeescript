@@ -5,7 +5,6 @@ helpers = require('view-helpers')
 path = require('path')
 
 module.exports = (app, config, passport) ->
-
   app.set('showStackError', true)
 
   app.use(express.compress({
@@ -19,9 +18,7 @@ module.exports = (app, config, passport) ->
 
   app.configure ->
     app.use(helpers(config.app.name))
-
     app.use(express.cookieParser())
-
     app.use(express.bodyParser())
     
     # Support for using PUT, DEL etc. in forms using hidden _method field

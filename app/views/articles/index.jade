@@ -4,4 +4,24 @@ block title
   | List articles
 
 block content
-  h2 List articles
+  
+  each article in articles
+  
+    .container
+      .row
+        .span12
+          h1=article.title
+      .row
+        .span2
+          small
+            p 
+              b Published
+              br
+              != dateShortMon(article.createdAt)
+          
+            p 
+              b Posted in
+              br
+              | #{article.tags} 
+        .span10
+          != marked(article.body)
