@@ -35,7 +35,7 @@ require('./config/express')(app, config, passport)
 require('./config/routes')(app, passport, auth)
 
 // Helper funtions
-require('./config/helpers')(app)
+require('./app/helpers/general')(app)
 
 // Start the app by listening on <port>
 var port = process.env.PORT || 3000
