@@ -23,7 +23,7 @@
     "underscore": "latest",
     "connect-flash": "latest",
     "view-helpers": "latest",
-    "less": "latest",
+    "less": "1.3.3",
     "moment": "latest",
     "marked": "latest"
   },
