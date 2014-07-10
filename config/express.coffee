@@ -37,13 +37,11 @@ module.exports = (app, config, passport) ->
   # Support for using PUT, DEL etc. in forms using hidden _method field
   app.use methodOverride()
 
-  app.use(session({
+  app.use session
     secret: 'p8zztgch48rehu79jskhm6aj3',
-    store: new mongoStore({
+    store: new mongoStore
       url: config.db,
       collection : 'sessions'
-    })
-  }))
   
   app.use(express.favicon(path.join(__dirname, '../assets/img/favicon.ico')))
 
