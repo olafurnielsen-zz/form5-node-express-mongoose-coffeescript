@@ -1,5 +1,6 @@
 express = require('express')
-mongoStore = require('connect-mongo')(express)
+session = require('express-session')
+mongoStore = require('connect-mongo')(session)
 flash = require('connect-flash')
 helpers = require('view-helpers')
 path = require('path')
