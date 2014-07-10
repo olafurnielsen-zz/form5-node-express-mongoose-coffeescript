@@ -66,15 +66,18 @@ UserSchema.statics =
 
 User = mongoose.model 'User', UserSchema
 
-###
-user = new User
-  username: 'oon'
-  password: 'oon'
-  email: 'olafur@form5.is'
-  name: 'Ólafur Örn Nielsen'
-user.save (err) ->
-  if err
-    console.log err
-  else
-    console.log 'Created user: ' + user.username
-###
+createFirstUser = (err,count) ->
+  if count == 0
+    user = new User
+      username: 'user'
+      password: 'password'
+      email: 'somewhere@there.com'
+      name: 'Anon E Mous'
+    user.save (err) ->
+      if err
+        console.log err
+      else
+        console.log 'Created user: ' + user.username
+
+
+User.count({},createFirstUser)
