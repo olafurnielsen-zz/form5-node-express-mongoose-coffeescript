@@ -2,6 +2,8 @@ express = require 'express'
 session = require 'express-session'
 compression = require 'compression'
 errorHandler = require 'errorhandler'
+cookieParser = require 'cookie-parser'
+bodyParser = require 'body-parser'
 flash = require 'connect-flash'
 helpers = require 'view-helpers'
 path = require 'path'
@@ -28,8 +30,8 @@ module.exports = (app, config, passport) ->
 
   
   app.use(helpers(config.app.name))
-  app.use(express.cookieParser())
-  app.use(express.bodyParser())
+  app.use(cookieParser())
+  app.use(bodyParser())
     
     # Support for using PUT, DEL etc. in forms using hidden _method field
   app.use(express.methodOverride())
