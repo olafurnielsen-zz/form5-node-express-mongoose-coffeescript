@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "latest",
     "express-session": "latest",
+    "compression": "latest",
     "jade": "latest",
     "coffee-script": "latest",
     "mongoose": "latest",
