@@ -4,6 +4,7 @@ compression = require 'compression'
 errorHandler = require 'errorhandler'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
+methodOverride = require 'method-override'
 flash = require 'connect-flash'
 helpers = require 'view-helpers'
 path = require 'path'
@@ -29,14 +30,14 @@ module.exports = (app, config, passport) ->
   app.set('view engine', 'jade')
 
   
-  app.use(helpers(config.app.name))
-  app.use(cookieParser())
-  app.use(bodyParser())
+  app.use helpers(config.app.name)
+  app.use cookieParser()
+  app.use bodyParser()
     
-    # Support for using PUT, DEL etc. in forms using hidden _method field
-  app.use(express.methodOverride())
+  # Support for using PUT, DEL etc. in forms using hidden _method field
+  app.use methodOverride()
 
-  app.use(express.session({
+  app.use(session({
     secret: 'p8zztgch48rehu79jskhm6aj3',
     store: new mongoStore({
       url: config.db,
