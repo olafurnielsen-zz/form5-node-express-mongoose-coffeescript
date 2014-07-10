@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "express": "latest",
-    "express-session": "latest",
+    "session": "latest",
     "compression": "latest",
-    "express-error-handler": "latest",
+    "errorhandler": "latest",
     "jade": "latest",
     "coffee-script": "latest",
     "mongoose": "latest",
