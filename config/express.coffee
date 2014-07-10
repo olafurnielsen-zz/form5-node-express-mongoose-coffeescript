@@ -1,10 +1,11 @@
-express = require('express')
-session = require('express-session')
-compression = require('compression')
+express = require 'express'
+session = require 'express-session'
+compression = require 'compression'
+errorHandler = require 'errorhandler'
+flash = require 'connect-flash'
+helpers = require 'view-helpers'
+path = require 'path'
 mongoStore = require('connect-mongo')(session)
-flash = require('connect-flash')
-helpers = require('view-helpers')
-path = require('path')
 
 module.exports = (app, config, passport) ->
   env = process.env.NODE_ENV || 'development'
@@ -19,7 +20,7 @@ module.exports = (app, config, passport) ->
     
   if 'development' == env
     console.log 'Configuring development environment'
-    app.use express.errorHandler()
+    app.use errorHandler()
     app.locals.pretty = true
   
   app.set('views', config.root + '/app/views')
