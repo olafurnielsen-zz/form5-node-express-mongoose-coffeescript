@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "express": "latest",
+    "express-session": "latest",
     "jade": "latest",
     "coffee-script": "latest",
     "mongoose": "latest",
